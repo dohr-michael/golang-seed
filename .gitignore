@@ -1,0 +1,11 @@
+## IDEA
+/.idea/
+
+## GOLANG
+/vendor/
+vendor.tar.gz
+
+## Project
+.tmp/
+*.zip
+*.exe
