@@ -9,20 +9,32 @@ Default command provided:
 
 Package management by [https://github.com/Masterminds/glide](Glide)
 - install dependency
-```shell
+```bash
 glide get package_name
+```
+
+Initialize dev:
+- install glide
+- Replace all occurence of `golang-seed` by your project name.
+- install dependencies.
+```bash
+glide install
+```
+- run project :
+```bash
+go run main.go start
 ```
 
 Docker
 ------
 
 - Generate container :
-```shell
+```bash
 make build
 ```
 
 - Run container :
-```shell
+```bash
 docker run -d [-v .my-config-file.yml:/.config.yml] project-name:version
 ```
 
