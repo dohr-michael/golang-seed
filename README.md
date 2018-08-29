@@ -43,6 +43,7 @@ TODO
 
 - Build as CLI
 - More documentation
+- ci/cd, docker-hub integration ?
 - Templating of the seed ?
   - GRPC
   - REST
