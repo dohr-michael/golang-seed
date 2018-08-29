@@ -15,7 +15,7 @@ glide get package_name
 
 Initialize dev:
 - install glide
-- Replace all occurence of `golang-seed` by your project name.
+- Replace all occurences of `golang-seed` by your project name.
 - install dependencies.
 ```bash
 glide install
