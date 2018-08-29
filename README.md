@@ -38,4 +38,13 @@ make build
 docker run -d [-v .my-config-file.yml:/.config.yml] project-name:version
 ```
 
+TODO
+----
+
+- Build as CLI
+- More documentation
+- Templating of the seed ?
+  - GRPC
+  - REST
+  - ...
 
