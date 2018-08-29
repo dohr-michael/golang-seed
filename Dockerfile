@@ -1,23 +1,25 @@
-ARG $PROJECT_PATH
-ARG $VERSION
-ARG $COMMIT
-ARG $BUILD_TIME
-
 FROM golang:alpine as builder
 
-RUN apk update && apk add ca-certificates && mkdir -p $GOPATH/src/$PROJECT_PATH
+ARG projectPath
+ARG version
+ARG commit
+ARG buildTime
 
-COPY . $GOPATH/src/$PROJECT_PATH
+RUN apk update && apk add ca-certificates && mkdir -p /go/src/${projectPath}
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build \
+WORKDIR /go/src/${projectPath}
+
+COPY ./ .
+
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
        -a -installsuffix cgo \
-       -ldflags="-X ${PROJECT_PATH}/cmd.BuildVersion=${VERSION} -X ${PROJECT_PATH}/cmd.BuildRevision=${COMMIT} -X ${PROJECT_PATH}/cmd.BuildTime=${BUILD_TIME} -w -s" \
-       -o /go/bin/project
+       -ldflags="-X ${projectPath}/cmd.BuildVersion=${version} -X ${projectPath}/cmd.BuildRevision=${commit} -X ${projectPath}/cmd.BuildTime=${buildTime} -w -s" \
+       -o /go/bin/project && touch /go/bin/.config.yml
 
 FROM scratch
 
 COPY --from=builder /go/bin/project /project
+COPY --from=builder /go/bin/.config.yml /.config.yml
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-ENTRYPOINT ["/./project start"]
+CMD ["/project", "--config=/.config.yml", "start"]
