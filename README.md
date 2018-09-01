@@ -7,7 +7,7 @@ Default command provided:
 - start : to start the process.
 - version : to display the version (based to git commit / branch / build time)
 
-Package management by [https://github.com/Masterminds/glide](Glide)
+Package management by [https://github.com/Masterminds/glide](https://github.com/Masterminds/glide)
 - install dependency
 ```bash
 glide get package_name
