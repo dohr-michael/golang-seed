@@ -4,7 +4,7 @@ golang-seed
 Golang seed application with yaml config file + cli
 
 Default command provided:
-- start : to start the process.
+- start : to start the process (by default an http server with /@/health).
 - version : to display the version (based to git commit / branch / build time)
 
 Package management by [https://github.com/Masterminds/glide](https://github.com/Masterminds/glide)
@@ -16,6 +16,7 @@ glide get package_name
 Initialize dev:
 - install glide
 - Replace all occurences of `golang-seed` by your project name.
+- Replace all occurences of `github.com/dohr-michael` by your project path.
 - install dependencies.
 ```bash
 glide install
@@ -23,6 +24,11 @@ glide install
 - run project :
 ```bash
 go run main.go start
+```
+- run project with hot reload (http server)
+```bash
+go get github.com/codegangsta/gin
+gin --appPort 8080 --buildArgs main.go -i run start
 ```
 
 Docker
