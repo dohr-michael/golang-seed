@@ -3,7 +3,6 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	homedir "github.com/mitchellh/go-homedir"
 	"fmt"
 	"log"
 	"path/filepath"
@@ -32,7 +31,7 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVarP(&configFile, "config", "c", "", fmt.Sprintf("config file (default \"$HOME/.%s.yml\")", cmdName))
+	rootCmd.PersistentFlags().StringVarP(&configFile, "config", "c", "", fmt.Sprintf("config file (default \"./.%s.yml\")", cmdName))
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 
 	// Set Default Viper configs.
@@ -45,11 +44,7 @@ func initConfig() {
 	if configFile != "" {
 		viper.SetConfigFile(configFile)
 	} else {
-		home, err := homedir.Dir()
-		if err != nil {
-			log.Fatal(err)
-		}
-		filename := filepath.Join(home, fmt.Sprintf(".%s.yml", cmdName))
+		filename := filepath.Join(".", fmt.Sprintf(".%s.yml", cmdName))
 		if _, err := os.Stat(filename); os.IsNotExist(err) {
 			// Default config file.
 			configYml := `
@@ -61,7 +56,7 @@ func initConfig() {
 		}
 
 		viper.SetConfigName(fmt.Sprintf(".%s", cmdName))
-		viper.AddConfigPath(home)
+		viper.AddConfigPath(".")
 	}
 	viper.SetEnvPrefix(cmdName)
 	viper.AutomaticEnv()
