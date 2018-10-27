@@ -4,6 +4,9 @@
 ## GOLANG
 /vendor/
 vendor.tar.gz
+gin-bin
+.golang-seed.yml
+
 
 ## Project
 .tmp/
