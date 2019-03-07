@@ -16,8 +16,7 @@ func Build() error {
 	return sh.Run("go", "build", "./...")
 }
 
-/*
+
 func Release() error {
-	return sh.Run("goreleaser", "release")
+	return sh.Run("goreleaser", "--rm-dist")
 }
-*/
