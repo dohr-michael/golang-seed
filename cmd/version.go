@@ -6,12 +6,6 @@ import (
 	"fmt"
 )
 
-var (
-	BuildVersion  string = "v0.0.0"
-	BuildRevision string = "ac7c127b4c24fba18a21601c3838ed0a05d29db9"
-	BuildTime     string = "2018-08-22T09:17:08+02:00"
-)
-
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Show version",

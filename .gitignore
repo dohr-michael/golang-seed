@@ -7,6 +7,8 @@ vendor.tar.gz
 gin-bin
 .golang-seed.yml
 
+# GoReleaser
+dist
 
 ## Project
 .tmp/

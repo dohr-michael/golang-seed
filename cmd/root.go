@@ -16,6 +16,12 @@ var verbose bool
 // TODO Change me
 const cmdName = "golang-seed"
 
+var (
+	Version  string = ""
+	Revision string = ""
+	Time     string = ""
+)
+
 var rootCmd = &cobra.Command{
 	Use:   cmdName,
 	Short: "",
@@ -35,9 +41,9 @@ func init() {
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 
 	// Set Default Viper configs.
-	viper.SetDefault("build.version", BuildVersion)
-	viper.SetDefault("build.revision", BuildRevision)
-	viper.SetDefault("build.time", BuildTime)
+	viper.SetDefault("build.version", Version)
+	viper.SetDefault("build.revision", Revision)
+	viper.SetDefault("build.time", Time)
 }
 
 func initConfig() {
