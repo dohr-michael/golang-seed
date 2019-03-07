@@ -6,6 +6,10 @@ before:
     - go mod download
     # you may remove this if you don't need go generate
     - go generate ./...
+release:
+  # If set to true, will not auto-publish the release.
+  # Default is false.
+  draft: true
 builds:
   - 
     main: ./main.go
@@ -46,7 +50,6 @@ dockers:
     - "--label=org.label-schema.schema-version=1.0"
     - "--label=org.label-schema.version={{.Version}}"
     - "--label=org.label-schema.name={{.ProjectName}}"
-    - "--build-arg=FOO={{.ENV.Bar}}"
     extra_files:
     - config.yml
 checksum:
