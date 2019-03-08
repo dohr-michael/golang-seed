@@ -20,6 +20,7 @@ builds:
     goarch:
       - amd64
       - arm64
+      - 386
     ldflags:
       - -a -installsuffix cgo -s -w -X github.com/dohr-michael/golang-seed/cmd.Version={{.ProjectName}} -X github.com/dohr-michael/golang-seed/cmd.Revision={{.ShortCommit}} -X github.com/dohr-michael/golang-seed/cmd.Time={{.Date}}
     env:
@@ -33,16 +34,15 @@ archive:
     amd64: x86_64
 dockers:
   -
-    # GOOS of the built binary that should be used.
-    goos: linux
-    # GOARCH of the built binary that should be used.
-    goarch: amd64
-    # Path to the Dockerfile (from the project root).
-    dockerfile: Dockerfile
+    image_templates:
+    - "dohr-michael/golang-seed:lastest"
+    - "dohr-michael/golang-seed:{{.Tag}}"
+    - "dohr-michael/golang-seed:{{.Major}}"
+    - "dohr-michael/golang-seed:lastest"
     # Template of the docker build flags.
     # Name templates of the built binaries that should be used.
     binaries:
-    - project
+    - golang-seed
     # Skips the docker push. Could be useful if you also do draft releases.
     # Defaults to false.
     skip_push: true
@@ -52,7 +52,7 @@ dockers:
     - "--label=org.label-schema.version={{.Version}}"
     - "--label=org.label-schema.name={{.ProjectName}}"
     extra_files:
-    - config.yml
+    #- config.yml
 checksum:
   name_template: 'checksums.txt'
 snapshot:
