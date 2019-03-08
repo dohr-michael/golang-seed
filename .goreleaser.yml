@@ -19,6 +19,7 @@ builds:
       - darwin
     goarch:
       - amd64
+      - arm64
     ldflags:
       - -a -installsuffix cgo -s -w -X github.com/dohr-michael/golang-seed/cmd.Version={{.ProjectName}} -X github.com/dohr-michael/golang-seed/cmd.Revision={{.ShortCommit}} -X github.com/dohr-michael/golang-seed/cmd.Time={{.Date}}
     env:
