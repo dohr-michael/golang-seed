@@ -1,5 +1,8 @@
 language: go
 
+go:
+- 1.11.x
+
 addons:
   # apt:
     # packages:
@@ -9,6 +12,7 @@ addons:
     # - snapd
 
 env:
+- GO111MODULE=on
 # needed for the snap pipe:
 # - PATH=/snap/bin:$PATH
 
