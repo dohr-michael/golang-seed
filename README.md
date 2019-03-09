@@ -13,7 +13,14 @@ golang-Seed
     - Build locally : `mage build` 
     - Snapshot release (with container generation): `mage snapshot` 
     - Release (if tag is specify): `mage release`
-
+- Instal dependencies
+```
+go mod download
+```
+- Run project
+```
+go run main.go start
+```
 - Hot Reload
 ```
 go get github.com/codegangsta/gin
