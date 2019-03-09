@@ -1,57 +1,51 @@
-golang-seed
+golang-Seed
 ===========
 
-Golang seed application with yaml config file + cli
+[![Build Status](https://travis-ci.org/dohr-michael/golang-seed.svg?branch=master)](https://travis-ci.org/dohr-michael/golang-seed)
 
-Default command provided:
-- start : to start the process (by default an http server with /@/health).
-- version : to display the version (based to git commit / branch / build time)
 
-Package management by [https://github.com/Masterminds/glide](https://github.com/Masterminds/glide)
-- install dependency
-```bash
-glide get package_name
+- Using [go mod](https://github.com/golang/go/wiki/Modules)
+- Build in with [magefile](https://magefile.org/)
+- Release management with [GoReleaser](https://goreleaser.com/)
+
+- Commands (from Magefile)
+    - Run unit test : `mage test` 
+    - Build locally : `mage build` 
+    - Snapshot release (with container generation): `mage snapshot` 
+    - Release (if tag is specify): `mage release`
+- Instal dependencies
 ```
-
-Initialize dev:
-- install glide
-- Replace all occurences of `golang-seed` by your project name.
-- Replace all occurences of `github.com/dohr-michael` by your project path.
-- install dependencies.
-```bash
-glide install
+go mod download
 ```
-- run project :
-```bash
+- Run project
+```
 go run main.go start
 ```
-- run project with hot reload (http server)
-```bash
+- Hot Reload
+```
 go get github.com/codegangsta/gin
 gin --appPort 8080 --buildArgs main.go -i run start
 ```
 
-Docker
-------
-
-- Generate container :
-```bash
-make build
-```
-
-- Run container :
-```bash
-docker run -d [-v .my-config-file.yml:/.config.yml] project-name:version
-```
-
-TODO
-----
-
-- Build as CLI
-- More documentation
-- ci/cd, docker-hub integration ?
-- Templating of the seed ?
-  - GRPC
-  - REST
-  - ...
-
+- Needs
+    - Replacement in the project (in order):
+        - `golang-seed` by your project name
+        - `github.com/dohr-michael` by your github / git path / by your go package root.
+        - `jdrbahamut` by your docker registry organization.
+    - environment variables
+        - GITHUB_TOKEN
+    - Docker registry authentication
+- Release Generate :
+    - Binaries
+        - darwin_amd64
+        - darwin_386
+        - linux_amd64
+        - linux_arm64
+        - linux_386
+        - windows_amd64
+        - windows_386
+    - Docker Container
+        - linux_amd64
+    - Github release
+    - Homebrew Tap
+    - Scoop recipe

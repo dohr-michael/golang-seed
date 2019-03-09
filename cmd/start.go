@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-        "net/http"
+    "net/http"
 	"log"
 )
 
@@ -16,7 +16,8 @@ var startCmd = &cobra.Command{
 			w.Header().Set("Content-Type", "application/json")
 			w.Write([]byte(`{"status": "OK"}`))
 		})
-
+		
+		log.Println(" - Start http server on port :8080")
 		return http.ListenAndServe(":8080", server)
 	},
 }

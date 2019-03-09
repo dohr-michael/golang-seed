@@ -1,4 +1,0 @@
-package: github.com/dohr-michael/golang-seed
-import:
-- package: github.com/spf13/cobra
-- package: github.com/spf13/viper
