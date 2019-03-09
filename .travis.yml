@@ -1,12 +1,12 @@
 language: go
 
 addons:
-  apt:
-    packages:
+  # apt:
+    # packages:
     # needed for the nfpm pipe:
-    - rpm
+    # - rpm
     # needed for the snap pipe:
-    - snapd
+    # - snapd
 
 env:
 # needed for the snap pipe:
