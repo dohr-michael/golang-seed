@@ -31,17 +31,14 @@ archive:
 dockers:
   -
     image_templates:
-    - "dohr-michael/golang-seed:lastest"
-    - "dohr-michael/golang-seed:{{.Tag}}"
-    - "dohr-michael/golang-seed:{{.Major}}"
-    - "dohr-michael/golang-seed:lastest"
+    - "jdrbahamut/golang-seed:lastest"
+    - "jdrbahamut/golang-seed:{{.Tag}}"
+    - "jdrbahamut/golang-seed:{{.Major}}"
+    - "jdrbahamut/golang-seed:lastest"
     # Template of the docker build flags.
     # Name templates of the built binaries that should be used.
     binaries:
     - golang-seed
-    # Skips the docker push. Could be useful if you also do draft releases.
-    # Defaults to false.
-    skip_push: true
     # Template of the docker build flags.
     build_flag_templates:
     - "--label=org.label-schema.schema-version=1.0"

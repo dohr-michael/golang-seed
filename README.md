@@ -9,11 +9,10 @@ golang-Seed
     - Replacement in the project (in order):
         - `golang-seed` by your project name
         - `github.com/dohr-michael` by your github / git path / by your go package root.
-        - `dohr-michael` by your docker registry organization.
+        - `jdrbahamut` by your docker registry organization.
     - environment variables
         - GITHUB_TOKEN
-        - 
-
+    - Docker registry authentication
 - Release Generate :
     - Binaries
         - darwin_amd64
@@ -26,3 +25,5 @@ golang-Seed
     - Docker Container
         - linux_amd64
     - Github release
+    - Homebrew Tap
+    - Scoop recipe
