@@ -1,6 +1,9 @@
 golang-Seed
 ===========
 
+[![Build Status](https://travis-ci.org/dohr-michael/golang-seed.svg?branch=master)](https://travis-ci.org/dohr-michael/golang-seed)
+
+
 - Using [go mod](https://github.com/golang/go/wiki/Modules)
 - Build in with [magefile](https://magefile.org/)
 - Release management with [GoReleaser](https://goreleaser.com/)
