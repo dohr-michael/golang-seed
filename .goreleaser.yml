@@ -6,10 +6,6 @@ before:
     - go mod download
     # you may remove this if you don't need go generate
     - go generate ./...
-release:
-  # If set to true, will not auto-publish the release.
-  # Default is false.
-  draft: true
 builds:
   - 
     main: ./main.go
@@ -63,3 +59,19 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+brew:
+  github:
+    owner: dohr-michael
+    name: homebrew-tap
+  folder: Formula
+  homepage:  https://github.com/dohr-michael/golang-seed
+  description: Golang project starter
+  test: |
+    system "#{bin}/golang-seed version"
+scoop:
+  bucket:
+    owner: dohr-michael
+    name: scoop-bucket
+  homepage: https://github.com/dohr-michael/golang-seed
+  description: Golang project starter
+  license: MIT

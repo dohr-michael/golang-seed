@@ -9,7 +9,16 @@ func init() {
 
 }
 
+func downloadDeps() error {
+	return sh.Run("go", "mod", "download")
+}
+
+func generate() error {
+	return sh.Run("go", "generate", "./...")
+}
+
 func Test() error {
+	mg.Deps(downloadDeps, generate)
 	return sh.Run("go", "test", "./...")
 }
 
