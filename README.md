@@ -8,6 +8,18 @@ golang-Seed
 - Build in with [magefile](https://magefile.org/)
 - Release management with [GoReleaser](https://goreleaser.com/)
 
+- Commands (from Magefile)
+    - Run unit test : `mage test` 
+    - Build locally : `mage build` 
+    - Snapshot release (with container generation): `mage snapshot` 
+    - Release (if tag is specify): `mage release`
+
+- Hot Reload
+```
+go get github.com/codegangsta/gin
+gin --appPort 8080 --buildArgs main.go -i run start
+```
+
 - Needs
     - Replacement in the project (in order):
         - `golang-seed` by your project name
