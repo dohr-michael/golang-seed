@@ -34,7 +34,6 @@ dockers:
     - "jdrbahamut/golang-seed:lastest"
     - "jdrbahamut/golang-seed:{{.Tag}}"
     - "jdrbahamut/golang-seed:{{.Major}}"
-    - "jdrbahamut/golang-seed:lastest"
     # Template of the docker build flags.
     # Name templates of the built binaries that should be used.
     binaries:
