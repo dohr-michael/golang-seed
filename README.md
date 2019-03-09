@@ -1,7 +1,7 @@
 golang-Seed
 ===========
 
-[![Build Status](https://travis-ci.org/dohr-michael/golang-seed.svg?branch=master)](https://travis-ci.org/dohr-michael/golang-seed)
+[![Build Status](https://travis-ci.org/dohr-michael/golang-seed.svg?branch=master)](https://travis-ci.org/dohr-michael/golang-seed) [![](https://images.microbadger.com/badges/image/jdrbahamut/golang-seed:lastest.svg)](https://microbadger.com/images/jdrbahamut/golang-seed:lastest "Get your own image badge on microbadger.com")
 
 
 - Using [go mod](https://github.com/golang/go/wiki/Modules)
